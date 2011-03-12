@@ -30,7 +30,7 @@ namespace Double_Linked_List
             }
 
             if (tail == null)
-                tail = head;
+                tail = newNode;
         }
 
         public void AddLast(E element)
