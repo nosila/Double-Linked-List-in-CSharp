@@ -18,14 +18,15 @@ namespace Double_Linked_List
 
         public void AddFirst(E element)
         {
+            Node<E> newNode = new Node<E>(element, next: head);
             if (head != null)
             {
-                head.SetPrev(new Node<E>(element, next: head));
-                head = head.GetPrev();
+                head.SetPrev(newNode);
+                head = newNode;
             }
             else
             {
-                head = new Node<E>(element, next: head);
+                head = newNode;
             }
 
             if (tail == null)
@@ -34,15 +35,17 @@ namespace Double_Linked_List
 
         public void AddLast(E element)
         {
+            Node<E> newNode = new Node<E>(element, prev: tail);
             if (tail != null)
             {
-                tail.SetNext(new Node<E>(element, prev: tail));
-                tail = tail.GetNext();
+                tail.SetNext(newNode);
+                tail = newNode;
             }
             else
-                tail = new Node<E>(element, prev: tail);
+                tail = newNode;
+
             if (head == null)
-                head = tail;
+                head = newNode;
         }
 
         override public string ToString()
